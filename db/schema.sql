@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS coding_db;
+
+CREATE DATABASE codingwith_db;
