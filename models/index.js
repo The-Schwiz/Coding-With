@@ -4,17 +4,16 @@ const Links = require('./Links');
 
 Profile.belongsTo(User, {
     foreignKey: 'user_id',
-    onDelete: 'SET NULL'
+    onDelete: 'CASCADE'
 });
+User.hasOne(Profile);
 
-Links.belongsTo(User, {
-  foreignKey: 'user_id',
-  onDelete: 'SET NULL'
-});
+
 
 Links.belongsTo(Profile, {
   foreignKey: 'profile_id',
-  onDelete: 'SET NULL'
+  onDelete: 'CASCADE'
 });
+Profile.hasOne(Links);
 
 module.exports = { User, Profile, Links };

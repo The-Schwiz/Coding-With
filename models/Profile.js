@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcryptjs');
 const sequelize = require('../config/connection');
+const User = require('./User');
 
 class Profile extends Model {}
 
@@ -38,6 +39,7 @@ Profile.init(
         },
         user_id: {
           type: DataTypes.INTEGER,
+          unique: true,
           references: {
             model: 'user',
             key: 'id'
