@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<!-- HEAD -->
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./images/codingwith-logo.png" type="image/x-icon">
+    <title>coding with...</title>
+</head>
+
+<!-- BODY -->
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-light" 
+      style='background-image: url("/images/hhholographic.png");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: bottom'>
+
+    <!-- LOGO + TITLE -->
+    <a class="navbar-brand order-0 h1" href="/">
+        <img src="./images/codingwith-logo.png" width="40" height="40" class="d-inline-block align-top" alt="coding with logo">
+        <div class="title d-inline-block ml-1">
+            coding with...
+        </div>
+    </a>
+
+    <!-- SEARCH BAR -->
+    <form class="navbar-search form-inline navbar-nav ml-auto">
+        <input class="navbar-search-input form-control" type="search" placeholder="search for developers" aria-label="Search" maxlength="38">
+        <div class="navbar-search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+    </form>
+
+    <!-- MY PROFILE -->
+    {{#if logged_in}}
+        <a href="/profile">
+        <i class="fa-solid fa-user"></i>
+        </a>
+    {{else}}
+        <a href="#" data-toggle="modal" data-target="#login-modal">
+        <i class="fa-solid fa-user"></i>
+        </a>
+    {{/if}}
+
+    <!-- DROPDOWN MENU -->
+    <a href="#" class="navbar-toggler" id="navbar-dropdown-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown-menu">
+        {{#if logged_in}}
+            <a class="dropdown-item dropdown-loggedin" href="/profile">my profile</a>
+            <a class="dropdown-item dropdown-loggedin" href="/update-profile">edit profile</a>
+            <a class="dropdown-item dropdown-loggedin" href="/account">account info</a>
+            <a class="dropdown-item dropdown-loggedin" href="/">
+                <div id="log-out">log out <i class="fa-solid fa-right-from-bracket"></i></div>
+            </a>
+        {{else}}
+            <a class="dropdown-item dropdown-loggedout" href="/sign-up">create account</a>
+            <a class="dropdown-item dropdown-loggedout" href="#">
+                <div id="log-in" data-toggle="modal" data-target="#login-modal">log in <i class="fa-solid fa-right-to-bracket"></i></div>
+            </a>
+        {{/if}}
+    </div>
+</nav>
+
+  <!-- LOGIN MODAL -->
+  <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div id="login-icon">
+            <i class="fa-solid fa-circle-exclamation"></i>
+          </div>
+          <h1 id="login-title">log in</h1>
+          <h2 id="login-subtitle">log in to access all this site's functions</h2>
+          <form class="login-form">
+            <div class="form-group">
+              <label id="login-email-label" for="login-email-input">email</label>
+              <input type="email" class="form-control" id="login-email-input" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+              <label id="login-password-label" for="login-password-input">password</label>
+              <input type="password" class="form-control" id="login-password-input">
+            </div>
+            <div class="text-center">
+              <button id="login-button" type="submit" class="btn btn-primary">log in</button>
+            </div>
+            <div id="login-divider"></div>
+            <div id="login-modal-footer" class="text-center">
+              new user? <a id="login-signup" href="/signup">create a new account</a>!
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<!-- MAIN -->
+{{{ body }}}
+
+<!-- FOOTER -->
+<footer>
+    <h3>©2023</h3>
+</footer>
+
+</body>
+
+{{!-- <script src=""></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</html>
