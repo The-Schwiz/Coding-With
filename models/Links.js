@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcryptjs');
 const sequelize = require('../config/connection');
+const Profile = require('./Profile');
 
 class Links extends Model {}
 
@@ -36,15 +37,16 @@ Links.init(
             type: DataTypes.STRING,
             allowNull: true,
         },
-        user_id: {
-          type: DataTypes.INTEGER,
-          references: {
-            model: 'user',
-            key: 'id'
-          }
-        },
+        // user_id: {
+        //   type: DataTypes.INTEGER,
+        //   references: {
+        //     model: 'user',
+        //     key: 'id'
+        //   }
+        // },
         profile_id: {
           type: DataTypes.INTEGER,
+          unique: true,
           references: {
             model: 'profile',
             key: 'id'

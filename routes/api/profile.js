@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Profile, User, Links } = require('../../models');
-const withAuth = require('../../utils/auth');
+const {withAuthApi} = require('../../utils/auth');
 
 // GET all profiles route
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
   Profile.findAll({
     attributes: [
       'id',
@@ -17,17 +17,15 @@ router.get('/', withAuth, (req, res) => {
     include: [
       {
         model: Links,
+        required: true,
         attributes: ['id', 'linkedin', 'github', 'ig', 'twitter', 'email', 'website'],
-        include: {
-          model: User,
-          attributes: ['email']
-        }
       },
-      {
-        model: User,
-        attributes: ['email']
-      }
+      // {
+      //   model: User,
+      //   attributes: ['email']
+      // }
     ]
+    // include: {all: true},
   })
     .then(dbProfileData => res.json(dbProfileData))
     .catch(err => {
@@ -37,7 +35,7 @@ router.get('/', withAuth, (req, res) => {
 });
 
 // GET single profile route
-router.get('/:id', withAuth, (req, res) => {
+router.get('/:id', withAuthApi, (req, res) => {
   Profile.findOne({
     where: {
       id: req.params.id
@@ -79,7 +77,7 @@ router.get('/:id', withAuth, (req, res) => {
 });
 
 // POST profile route
-router.post('/', withAuth, (req, res) => {
+router.post('/', withAuthApi, (req, res) => {
   Profile.create({
     name: req.body.name,
     bio: req.body.bio,
@@ -96,7 +94,7 @@ router.post('/', withAuth, (req, res) => {
 });
 
 // PUT profile route
-router.put('/:id', withAuth, (req, res) => {
+router.put('/:id', withAuthApi, (req, res) => {
   Profile.update({
     name: req.body.name,
     bio: req.body.bio,
@@ -125,7 +123,7 @@ router.put('/:id', withAuth, (req, res) => {
 });
 
 // DELETE profile route
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', withAuthApi, (req, res) => {
   console.log('id', req.params.id);
   Profile.destroy({
     where: {

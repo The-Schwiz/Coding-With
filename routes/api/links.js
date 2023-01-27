@@ -1,10 +1,9 @@
 const router = require('express').Router();
-const { response } = require('express');
 const { Links } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { withAuthApi } = require('../../utils/auth');
 
 // GET links route
-router.get('/', withAuth, (req, res) => {
+router.get('/', withAuthApi, (req, res) => {
   Links.findAll()
     .then(dbLinksData => res.json(dbLinksData))
     .catch(err => {
@@ -14,7 +13,7 @@ router.get('/', withAuth, (req, res) => {
 });
 
 // POST links route
-router.post('/', withAuth, (req, res) => {
+router.post('/', withAuthApi, (req, res) => {
   if (req.session) {
     Link.create({
       linkedin: req.body.linkedin,
@@ -34,7 +33,7 @@ router.post('/', withAuth, (req, res) => {
 });
 
 // DELETE comment route
-router.delete('/:id', withAuth, (req, res) => {
+router.delete('/:id', withAuthApi, (req, res) => {
   Links.destroy({
     where: {
       id: req.params.id
