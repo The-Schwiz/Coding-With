@@ -260,9 +260,102 @@ input::-webkit-search-cancel-button {
     color: var(--purple);
 }
 
-h3 {
+#home-title {
+    font-size: 32px !important;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#home-subtitle {
+    font-size: 12px !important;
+    color: white;
+    margin: -10px 20px 20px 20px;
+    text-align: center;
+}
+
+p {
+    cursor: default;
+    letter-spacing: 1px;
+}
+
+header {
+    cursor: default;
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: relative !important;
+    left: 50%;
+    transform: translate(-50%,0);
+    background: #BFEFFF;
+    width: fit-content;
+    background: linear-gradient(to right, #BFEFFF 0%, #FBFFFF 25%, #FABFFF 75%, #BFBFFF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h4 {
+    position: relative !important;
+    cursor: default;
+    color: white;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+h5 {
     font-size: 18px !important;
     letter-spacing: 2px;
+}
+
+#view-profiles {
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center !important;
+}
+
+.profile-card {
+    height: 350px;
+    width: 275px;
+    background-color: var(--lightgrey);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 5px 8px 6px -6px var(--shadow);
+}
+
+.profile-name {
+    cursor: default;
+    font-size: 20px !important;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--cyan);
+    text-align: center;
+}
+
+.profile-image {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: 1px solid var(--grey);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-tech {
+    cursor: default;
+    border-radius: 20px;
+    margin: 10px 0 10px 0;
+    padding: 7px;
+    background-color: var(--purple);
+    color: white;
+    text-align: center;
+    font-size: 12px !important;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 footer {
@@ -295,15 +388,9 @@ footer {
         padding-right: 0 !important;
         padding-left: 0 !important; 
     }
-}
 
-@media screen and (max-width:470px) {
-    .title {
-        font-size: 80%;
-    }
-
-    #login-button {
-        width: 80% !important;
+    #home-title {
+        font-size: 18px !important;
     }
 }
 
@@ -322,9 +409,23 @@ footer {
     }
 }
 
+@media screen and (max-width:470px) {
+    .title {
+        font-size: 80%;
+    }
+
+    #login-button {
+        width: 80% !important;
+    }
+}
+
 @media screen and (max-width:420px) {
     .title {
         display: none !important;
+    }
+
+    #home-subtitle {
+        text-align: left !important;;
     }
 }
 

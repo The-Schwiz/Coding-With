@@ -13,17 +13,21 @@ Profile.init(
           primaryKey: true,
           autoIncrement: true
         },
+        picture: {
+          type: DataTypes.STRING,
+          allowNull: true
+        },
         name: {
           type: DataTypes.STRING,
           allowNull: false
         },
         bio: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         location: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         experience: {
             type: DataTypes.STRING,
@@ -33,9 +37,9 @@ Profile.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        others: {
+        other: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         user_id: {
           type: DataTypes.INTEGER,
