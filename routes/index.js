@@ -8,10 +8,9 @@ const mainRouter = Router();
 
 
 mainRouter.use('/api', apiRouter);
-mainRouter.use('/home', homeRouter);
+mainRouter.use('/', homeRouter);
 mainRouter.use('/profile', profileRouter);
 
 
 
 module.exports = mainRouter;
-

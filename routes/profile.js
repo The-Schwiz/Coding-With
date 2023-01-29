@@ -1,4 +1,4 @@
-const {Router} = require('express');
+const { Router } = require('express');
 const profileController = require('../controllers/profile');
 
 const router = Router();
