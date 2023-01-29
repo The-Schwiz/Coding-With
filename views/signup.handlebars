@@ -1,0 +1,78 @@
+<header>Sign Up</header>
+<form class="signup-form" id="signup-step-1">
+    <div class="form-group">
+        <label id="signup-email-label" for="signup-email-input">Email</label>
+        <input type="email" class="form-control" id="signup-email-input" aria-describedby="emailHelp">
+    </div>
+    <div class="form-group">
+        <label id="signup-password-label" for="signup-password-input">Password</label>
+        <input type="password" class="form-control" id="signup-password-input">
+    </div>
+    <div class="form-group">
+        <label id="signup-confirm-password-label" for="signup-confirm-password-input">Confirm Password</label>
+        <input type="password" class="form-control" id="signup-confirm-password-input">
+    </div>
+    <div class="text-center">
+        <button id="signup-next-button" type="submit" class="btn btn-primary">Next</button>
+    </div>
+    {{!-- <div id="signup-divider"></div> --}}
+    {{!-- <div id="signup-modal-footer" class="text-center">
+        new user? <a id="signup-signup" href="/signup">create a new account</a>!
+    </div> --}}
+</form>
+<form class="signup-form" id="signup-step-2">
+    <div class="form-group">
+        <label id="signup-name-label" for="signup-name-input">Name</label>
+        <input type="text" class="form-control" id="signup-name-input" aria-describedby="nameHelp">
+    </div>
+    <div class="form-group">
+        <label id="signup-bio-label" for="signup-bio-input">Bio</label>
+        <input type="textarea" class="form-control" id="signup-bio-input">
+    </div>
+    <div class="form-group">
+        <label id="signup-location-label" for="signup-location-input">Location</label>
+        <input type="text" class="form-control" id="signup-location-input">
+    </div>
+    <div class="form-group">
+        <label id="signup-experience-label" for="signup-experience-input">Experience</label>
+        <input type="text" class="form-control" id="signup-experience-input">
+    </div>
+    <div class="form-group">
+        <label id="signup-tech-label" for="signup-tech-input">Tech</label>
+        <input type="text" class="form-control" id="signup-tech-input">
+    </div>
+    <div class="form-group">
+        <label id="signup-other-label" for="signup-other-input">Other</label>
+        <input type="text" class="form-control" id="signup-other-input">
+    </div>
+    <div class="form-group">
+        <label id="signup-links-label" for="signup-links-input">Links</label>
+        <input type="text" class="form-control" id="signup-linkedin-input"
+        placeholder="linkedin"
+        >
+        <input type="text" class="form-control" id="signup-github-input"
+        placeholder="Github"
+        >
+        <input type="text" class="form-control" id="signup-instagram-input"
+        placeholder="IG"
+        >
+        <input type="text" class="form-control" id="signup-twitter-input"
+        placeholder="Twitter"
+        >
+        <input type="text" class="form-control" id="signup-contact-email-input"
+        placeholder="Contact Email"
+        >
+        <input type="text" class="form-control" id="signup-website-input"
+        placeholder="Website"
+        >
+    </div>
+
+    <div class="text-center">
+        <button id="signup-finish-button" type="submit" class="btn btn-primary">Finish</button>
+    </div>
+    {{!-- <div id="signup-divider"></div> --}}
+    {{!-- <div id="signup-modal-footer" class="text-center">
+        new user? <a id="signup-signup" href="/signup">create a new account</a>!
+    </div> --}}
+</form>
+<script src="./js/signup.js"></script>
