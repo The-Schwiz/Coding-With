@@ -42,11 +42,11 @@
 
   For any questions about the project, please reach out to the members of the project <br>
   
-  > Member: Addy Abuyuan-Hoffmann <br>
-  > GitHub: kirbyfridge <br>
+  Member: Addy Abuyuan-Hoffmann <br>
+  GitHub: kirbyfridge <br>
   <br>
-  > Member: Elaine Bautista <br>
-  > GitHub: elaine0919 <br>
+  Member: Elaine Bautista <br>
+  GitHub: elaine0919 <br>
   <br>
-  > Member: Max Schwartz <br>
-  > GitHub: The-Schwiz <br>
+  Member: Max Schwartz <br>
+  GitHub: The-Schwiz <br>
