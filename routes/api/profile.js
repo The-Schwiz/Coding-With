@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
   Profile.findAll({
     attributes: [
       'id',
+      'picture',
       'name',
       'bio',
       'location',
@@ -42,6 +43,7 @@ router.get('/:id', withAuthApi, (req, res) => {
     },
     attributes: [
         'id',
+        'picture',
         'name',
         'bio',
         'location',
@@ -79,6 +81,7 @@ router.get('/:id', withAuthApi, (req, res) => {
 // POST profile route
 router.post('/', withAuthApi, (req, res) => {
   Profile.create({
+    picture: req.body.picture,
     name: req.body.name,
     bio: req.body.bio,
     location: req.body.location,
@@ -96,6 +99,7 @@ router.post('/', withAuthApi, (req, res) => {
 // PUT profile route
 router.put('/:id', withAuthApi, (req, res) => {
   Profile.update({
+    picture: req.body.picture,
     name: req.body.name,
     bio: req.body.bio,
     location: req.body.location,

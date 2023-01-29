@@ -1,0 +1,25 @@
+<div class="profile-card">
+    <h3 class="profile-name">{{profile.name}}</h3>
+    {{#if profile.picture is null}}
+        <a href="/profile/{{profile.id}}">
+            <img class="profile-image" src="./images/default.jpg" alt="profile image">
+        </a>
+    {{else}}
+        <a href="/profile/{{profile.id}}">
+            <img class="profile-image" src="{{profile.picture}}" alt="profile image">
+        </a>
+    {{/if}}
+    <div class="profile-tech">{{profile.tech}}</div>
+    <div class="profile-divider"></div>
+    <div class="profile-links">
+    <a href="{{profile.links.linkedin}}">
+        <img height="32" width="32" src="https://cdn.simpleicons.org/linkedin/white" />
+    </a>
+    <a href="{{profile.links.github}}">
+        <img height="32" width="32" src="https://cdn.simpleicons.org/github/white" />
+    </a>
+    <a href="{{profile.links.email}}">
+        <i class="fa-solid fa-at"></i>
+    </a>
+    </div>
+</div>
