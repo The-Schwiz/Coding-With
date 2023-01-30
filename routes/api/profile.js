@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
       'location',
       'experience',
       'tech',
-      'others'],
+      'other'],
     include: [
       {
         model: Links,
