@@ -3,6 +3,6 @@ const accountInfoController = require('../controllers/accountinfo');
 
 const router = Router();
 
-router.get('/account', accountInfoController.getAccountInfoPage);
+router.get('/', accountInfoController.getAccountInfoPage);
 
 module.exports = router;

@@ -221,7 +221,10 @@ input::-webkit-search-cancel-button {
     width: 100%;
 }
 
-#login-button {
+#login-button,
+#signup-next-button,
+#signup-finish-button,
+#account-save-button {
     color: var(--grey);
     background-color: var(--cyan);
     border: none;
@@ -235,13 +238,19 @@ input::-webkit-search-cancel-button {
     box-shadow: 0 8px 6px -6px var(--shadow);
 }
 
-#login-button:active {
+#login-button:active,
+#signup-next-button:active,
+#signup-finish-button:active
+#account-save-button:active {
     background-color: var(--paleblue);
     font-weight: 500;
     transform: scale(0.95)
 }
 
-#login-button:hover {
+#login-button:hover,
+#signup-next-button:hover,
+#signup-finish-button:hover,
+#account-save-button:hover {
     background-color: var(--paleblue);
 }
 
@@ -306,7 +315,37 @@ input::-webkit-search-cancel-button {
     letter-spacing: 1px;
 }
 
-#home-title {
+#sidebar-search-dropdown-wrapper {
+    margin-top: 10px;
+    height: 38px;
+}
+
+#sidebar-search-dropdown {
+    border-radius: 20px;
+    border: none;
+    padding: 0 !important;
+    color: white;
+    background-color: var(--magenta);
+    letter-spacing: 1px;
+    box-shadow: none !important;
+    width: 200px;
+    height: 38px;
+}
+
+.sidebar-search-item {
+    color: white;
+    letter-spacing: 1px;
+    padding: 10px 35px 10px 35px !important;
+}
+
+select:hover,
+option:hover {
+    background-color: var(--magenta) !important;
+}
+
+#home-title,
+#signup-title,
+#account-title {
     font-size: 32px !important;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -456,6 +495,83 @@ main {
     text-decoration: none;
 }
 
+#signup-wrapper,
+#account-wrapper {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+#signup-email-label,
+#signup-password-label,
+#signup-confirm-password-label,
+#signup-picture-label,
+#signup-name-label,
+#signup-bio-label,
+#signup-location-label,
+#signup-experience-label,
+#signup-tech-label,
+#signup-other-label,
+#signup-links-label,
+#account-email-label,
+#account-password-label {
+    color: var(--magenta);
+    font-size: 20px;
+    margin-left: 10px;
+    margin-bottom: -10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#signup-email-input,
+#signup-password-input,
+#signup-confirm-password-input,
+#signup-name-input,
+#signup-location-input,
+#signup-experience-input,
+#signup-tech-input,
+#signup-other-input,
+#signup-linkedin-input,
+#signup-github-input,
+#signup-instagram-input,
+#signup-twitter-input,
+#signup-contact-email-input,
+#signup-website-input,
+#account-email-input,
+#account-password-input {
+    border-radius: 20px;
+    padding: 10px 20px 10px 20px;
+    color: var(--grey);
+    letter-spacing: 1px;
+    box-shadow: none !important;
+    width: 400px;
+    height: 38px;
+    margin-bottom: 10px;
+}
+
+#signup-bio-input {
+    border-radius: 20px;
+    padding: 10px 20px 10px 20px;
+    color: var(--grey);
+    letter-spacing: 1px;
+    box-shadow: none !important;
+    width: 400px;
+    height: 100px;
+}
+
+input[type="file"] {
+    text-transform: lowercase;
+    border: none;
+    background-color: var(--grey);
+}
+
+input[type="file"]:hover,
+input[type="file"]:active {
+    border: none;
+    background-color: var(--grey);
+    outline-color: none !important;
+}
+
 footer {
     cursor: default;
     position: relative !important;
@@ -464,6 +580,7 @@ footer {
     left: 50%;
     transform: translate(-50%,0);
     bottom: 0;
+    margin-top: 20px;
 }
 
 @media screen and (max-width:1300px) {
@@ -534,11 +651,6 @@ footer {
     .fa-magnifying-glass {
         font-size: 25px !important;
     }
-
-    #sidebar-search-btn {
-        right: 21% !important;
-        top: 48px !important;
-    }
 }
 
 @media screen and (max-width:470px) {
@@ -546,7 +658,10 @@ footer {
         font-size: 80%;
     }
 
-    #login-button {
+    #login-button,
+    #signup-next-button,
+    #signup-finish-button,
+    #account-save-button {
         width: 80% !important;
     }
 }
@@ -576,12 +691,50 @@ footer {
     .profile-card {
         width: 95%;
     }
+
+    #signup-email-input,
+    #signup-password-input,
+    #signup-confirm-password-input,
+    #signup-name-input,
+    #signup-bio-input,
+    #signup-location-input,
+    #signup-experience-input,
+    #signup-tech-input,
+    #signup-other-input,
+    #signup-linkedin-input,
+    #signup-github-input,
+    #signup-instagram-input,
+    #signup-twitter-input,
+    #signup-contact-email-input,
+    #signup-website-input,
+    #account-email-input,
+    #account-password-input {
+        width: 280px !important;
+    }
+
+    #signup-step-2 {
+        margin: auto !important;
+    }
+}
+
+@media screen and (max-width:330px) {
+    #sidebar-search-input {
+        width: 240px !important;
+    }
+
+    #sidebar-search-btn {
+        margin-left: 190px;
+    }
 }
 
 @media screen and (max-width:260px) {
     .fa-user {
         padding-right: 10px !important;
         padding-left: 8px !important;
+    }
+
+    .profile-card {
+        width: 100% !important;
     }
 }
 

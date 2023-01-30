@@ -3,6 +3,6 @@ const signUpController = require('../controllers/signup');
 
 const router = Router();
 
-router.get('/sign-up', signUpController.getSignUpPage);
+router.get('/', signUpController.getSignupPage);
 
 module.exports = router;
