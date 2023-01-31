@@ -1,6 +1,6 @@
-const updateProfileController = (req, res) => {
-    return res.render('updateProfile');
+const getUpdateProfilePage = (req, res) => {
+    return res.render('updateprofile');
 };
 
 
-module.exports = updateProfileController;
+module.exports = { getUpdateProfilePage };
