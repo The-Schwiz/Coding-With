@@ -12,7 +12,7 @@ const mainRouter = Router();
 
 mainRouter.use('/api', apiRouter);
 mainRouter.use('/', homeRouter);
-mainRouter.use('/profile', profileRouter);
+mainRouter.use('/profiles', profileRouter);
 mainRouter.use('/sign-up', signupRouter);
 // mainRouter.use('/account', accountInfoRouter);
 // mainRouter.use('/update-profile', updateProfileRouter);

@@ -1,15 +1,13 @@
 <!-- PROFILE CARD -->
 <div class="profile-card">
     <h3 class="profile-name">{{name}}</h3>
+    <a href="/profiles/{{id}}">
     {{#if picture}}
-        <a href="/profile/{{id}}">
-            <img class="profile-image" src="./images/default.jpg" alt="profile image">
-        </a>
+        <img class="profile-image" src="./images/default.jpg" alt="profile image">
     {{else}}
-        <a href="/profile/{{id}}">
-            <img class="profile-image" src="{{picture}}" alt="profile image">
-        </a>
+        <img class="profile-image" src="{{picture}}" alt="profile image">
     {{/if}}
+    </a>
     <div class="profile-tech">{{tech}}</div>
     <div class="profile-divider"></div>
     <div class="profile-links">
