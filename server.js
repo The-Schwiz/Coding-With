@@ -21,6 +21,7 @@ app.use(session(sess));
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './views');
+app.set('partials', './views/partials');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
