@@ -2,7 +2,7 @@ const navbar = document.getElementsByClassName('navbar')[0];
 const navSearchBtn = document.getElementById('navbar-search-btn');
 const sidebar = document.getElementById('sidebar-wrapper');
 const content = document.querySelector('main');
-const footer = document.querySelector('footer');
+const footer = document.querySelector('h5');
 
 // shifts main content of homepage to make room for sidebar
 function shiftContent() {
@@ -37,6 +37,4 @@ content.addEventListener('click', () => {
 }, {once: true});
 
 // when clicking on the search button, sidebar will open
-navSearchBtn.addEventListener('click', () => {
-    oppositeShift();
-});
+navSearchBtn.addEventListener('click', oppositeShift);

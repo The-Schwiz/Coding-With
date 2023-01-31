@@ -224,6 +224,7 @@ input::-webkit-search-cancel-button {
 #login-button,
 #signup-next-button,
 #signup-finish-button,
+#update-profile-button,
 #account-save-button {
     color: var(--grey);
     background-color: var(--cyan);
@@ -345,7 +346,8 @@ option:hover {
 
 #home-title,
 #signup-title,
-#account-title {
+#account-title,
+#update-profile-title {
     font-size: 32px !important;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -496,7 +498,8 @@ main {
 }
 
 #signup-wrapper,
-#account-wrapper {
+#account-wrapper,
+#update-profile-wrapper {
     display: flex;
     flex-direction: column !important;
     align-items: center !important;
@@ -513,6 +516,16 @@ main {
 #signup-tech-label,
 #signup-other-label,
 #signup-links-label,
+#update-profile-picture-label,
+#update-profile-name-label,
+#update-profile-bio-label,
+#update-profile-location-label,
+#update-profile-experience-label,
+#update-profile-tech-label,
+#update-profile-other-label,
+#update-profile-links-label,
+#account-email-label,
+#account-password-label
 #account-email-label,
 #account-password-label {
     color: var(--magenta);
@@ -537,6 +550,17 @@ main {
 #signup-twitter-input,
 #signup-contact-email-input,
 #signup-website-input,
+#update-profile-name-input,
+#update-profile-location-input,
+#update-profile-experience-input,
+#update-profile-tech-input,
+#update-profile-other-input,
+#update-profile-linkedin-input,
+#update-profile-github-input,
+#update-profile-instagram-input,
+#update-profile-twitter-input,
+#update-profile-contact-email-input,
+#update-profile-website-input,
 #account-email-input,
 #account-password-input {
     border-radius: 20px;
@@ -549,7 +573,8 @@ main {
     margin-bottom: 10px;
 }
 
-#signup-bio-input {
+#signup-bio-input,
+#update-profile-bio-input {
     border-radius: 20px;
     padding: 10px 20px 10px 20px;
     color: var(--grey);
@@ -661,6 +686,7 @@ footer {
     #login-button,
     #signup-next-button,
     #signup-finish-button,
+    #update-profile-button,
     #account-save-button {
         width: 80% !important;
     }
@@ -707,13 +733,25 @@ footer {
     #signup-twitter-input,
     #signup-contact-email-input,
     #signup-website-input,
+    #update-profile-name-input,
+    #update-profile-bio-input,
+    #update-profile-location-input,
+    #update-profile-experience-input,
+    #update-profile-tech-input,
+    #update-profile-other-input,
+    #update-profile-linkedin-input,
+    #update-profile-github-input,
+    #update-profile-instagram-input,
+    #update-profile-twitter-input,
+    #update-profile-contact-email-input,
+    #update-profile-website-input,
     #account-email-input,
     #account-password-input {
         width: 280px !important;
     }
 
-    #signup-step-2 {
-        margin: auto !important;
+    #update-profile-form {
+        justify-content: center !important;
     }
 }
 
