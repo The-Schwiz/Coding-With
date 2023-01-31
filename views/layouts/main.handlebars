@@ -33,16 +33,25 @@
     </a>
 
     <!-- SEARCH BAR -->
-    <form class="navbar-search form-inline navbar-nav ml-auto">
-        <input class="navbar-search-input form-control" type="search" placeholder="search" aria-label="Search" maxlength="38">
-        <div class="navbar-search-btn" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-    </form>
+    {{#if logged_in}}
+      <form class="navbar-search form-inline navbar-nav ml-auto">
+          <input class="navbar-search-input form-control" type="search" placeholder="search" aria-label="Search" maxlength="38">
+          <a href="/" id="navbar-search-btn" class="navbar-search-btn navbar-toggler" type="submit" data-toggle="collapse" data-target="#sidebar-wrapper" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Advanced Search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+      </form>
+    {{else}}
+      <form class="navbar-search form-inline navbar-nav ml-auto">
+          <input class="navbar-search-input form-control" type="search" placeholder="search" aria-label="Search" maxlength="38">
+          <a href="/" class="navbar-search-btn" type="submit" data-toggle="modal" data-target="#login-modal">
+              <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+      </form>
+    {{/if}}
 
     <!-- MY PROFILE -->
     {{#if logged_in}}
-        <a href="/profile">
+        <a href=`/profile/{{profile.id}}`>
         <i class="fa-solid fa-user"></i>
         </a>
     {{else}}
@@ -96,23 +105,15 @@
             </div>
             <div id="login-divider"></div>
             <div id="login-modal-footer" class="text-center">
-              new user? <a id="login-signup" href="/signup">create a new account</a>!
+              new user? <a id="login-signup" href="/sign-up">create a new account</a>!
             </div>
           </form>
         </div>
       </div>
     </div>
   </div>
-  
-<!-- MAIN -->
+
 {{{ body }}}
-
-<!-- FOOTER -->
-<footer>
-    <h5>©2023</h5>
-</footer>
-
-</body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>

@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
   Profile.findAll({
     attributes: [
       'id',
+      "picture",
       'name',
       'bio',
       'location',
@@ -42,6 +43,7 @@ router.get('/:id', withAuthApi, (req, res) => {
     },
     attributes: [
         'id',
+        "picture",
         'name',
         'bio',
         'location',

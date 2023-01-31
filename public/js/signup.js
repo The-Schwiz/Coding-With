@@ -1,5 +1,7 @@
 console.log('Signup script');
 
+
+let picture;
 let email;
 let password;
 let confirmPassword;
@@ -42,6 +44,8 @@ function submitFirstStep(e){
 
 function submitSecondStep(e){
     e.preventDefault();
+
+    const pictureInput = document.getElementById('signup-picture-input');
     const nameInput = document.getElementById('signup-name-input');
     const bioInput = document.getElementById('signup-bio-input');
     const locationInput = document.getElementById('signup-location-input');
@@ -55,6 +59,8 @@ function submitSecondStep(e){
     const contactEmailLinkInput = document.getElementById('signup-contact-email-input');
     const websiteLinkInput = document.getElementById('signup-website-input');
 
+
+    picture = pictureInput.value;
     name = nameInput.value;
     bio = bioInput.value;
     userLocation = locationInput.value;
@@ -114,4 +120,4 @@ async function completeSignup(){
 signupNextButton.addEventListener('click', submitFirstStep);
 signupFinishButton.addEventListener('click', submitSecondStep);
 
-//step 2 signup 
+

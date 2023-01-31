@@ -12,6 +12,7 @@
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--grey);
+    overflow-x: hidden !important;
 }
 
 .navbar {
@@ -20,6 +21,7 @@ body {
     color: var(--grey);
     letter-spacing: 1px;
     width: 100%;
+    z-index: 2;
 }
 
 .navbar-brand {
@@ -57,12 +59,13 @@ input::-webkit-search-cancel-button {
     position: absolute !important;
     font-size: 27px !important;
     z-index: 1 !important;
-    right: 175px !important;
-    bottom: 12px !important;
+    right: 170px !important;
 }
 
 .navbar-search-btn:focus, 
-.navbar-search-btn:active {
+.navbar-search-btn:active,
+#sidebar-search-btn:focus, 
+#sidebar-search-btn:active  {
     border: none !important;
     outline: none !important;
     box-shadow: none;
@@ -218,7 +221,10 @@ input::-webkit-search-cancel-button {
     width: 100%;
 }
 
-#login-button {
+#login-button,
+#signup-next-button,
+#signup-finish-button,
+#account-save-button {
     color: var(--grey);
     background-color: var(--cyan);
     border: none;
@@ -232,13 +238,19 @@ input::-webkit-search-cancel-button {
     box-shadow: 0 8px 6px -6px var(--shadow);
 }
 
-#login-button:active {
+#login-button:active,
+#signup-next-button:active,
+#signup-finish-button:active
+#account-save-button:active {
     background-color: var(--paleblue);
     font-weight: 500;
     transform: scale(0.95)
 }
 
-#login-button:hover {
+#login-button:hover,
+#signup-next-button:hover,
+#signup-finish-button:hover,
+#account-save-button:hover {
     background-color: var(--paleblue);
 }
 
@@ -260,7 +272,80 @@ input::-webkit-search-cancel-button {
     color: var(--purple);
 }
 
-#home-title {
+#sidebar-wrapper {
+    background-color: white;
+    width: 0;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow: hidden;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+#sidebar-wrapper.show {
+    width: 350px;
+}
+
+#sidebar {
+    margin-top: 100px
+}
+
+#sidebar-search-input {
+    letter-spacing: 1px !important;
+    width: 300px !important;
+    border-radius: 20px;
+}
+
+#sidebar-search-btn {
+    position: absolute !important;
+    font-size: 27px !important;
+    z-index: 1 !important;
+    right: 35px !important;
+    top: 130px;
+}
+
+#sidebar-search-label {
+    color: var(--grey);
+    font-size: 20px;
+    margin-right: 170px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#sidebar-search-dropdown-wrapper {
+    margin-top: 10px;
+    height: 38px;
+}
+
+#sidebar-search-dropdown {
+    border-radius: 20px;
+    border: none;
+    padding: 0 !important;
+    color: white;
+    background-color: var(--magenta);
+    letter-spacing: 1px;
+    box-shadow: none !important;
+    width: 200px;
+    height: 38px;
+}
+
+.sidebar-search-item {
+    color: white;
+    letter-spacing: 1px;
+    padding: 10px 35px 10px 35px !important;
+}
+
+select:hover,
+option:hover {
+    background-color: var(--magenta) !important;
+}
+
+#home-title,
+#signup-title,
+#account-title {
     font-size: 32px !important;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -303,8 +388,12 @@ h4 {
 }
 
 h5 {
-    font-size: 18px !important;
+    font-size: 15px !important;
     letter-spacing: 2px;
+}
+
+main {
+    transition: all 0.3s;
 }
 
 #view-profiles {
@@ -314,6 +403,14 @@ h5 {
     flex-wrap: wrap;
     position: relative;
     justify-content: center !important;
+
+    transition: all .2s ease-in-out;
+
+    animation: dropfadedown .5s ease-in-out forwards;
+    animation-iteration-count: 1;
+
+    -webkit-animation: dropfadedown .5s;
+    -webkit-animation-iteration-count: 1;
 }
 
 .profile-card {
@@ -324,6 +421,13 @@ h5 {
     padding: 15px;
     margin: 10px;
     box-shadow: 5px 8px 6px -6px var(--shadow);
+
+    transition: all .2s ease-in-out;
+}
+
+.profile-card:hover {
+    box-shadow: 5px 8px 6px -6px var(--shadow);
+    transform: scale(1.05);
 }
 
 .profile-name {
@@ -333,6 +437,7 @@ h5 {
     letter-spacing: 1px;
     color: var(--cyan);
     text-align: center;
+    text-transform: lowercase;
 }
 
 .profile-image {
@@ -347,25 +452,141 @@ h5 {
 
 .profile-tech {
     cursor: default;
-    border-radius: 20px;
+    display: block;
     margin: 10px 0 10px 0;
-    padding: 7px;
-    background-color: var(--purple);
-    color: white;
+    color: var(--purple);
     text-align: center;
-    font-size: 12px !important;
+    font-size: 11px !important;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: lowercase;
+}
+
+.profile-divider {
+    text-align: center;
+    margin: 10px 0 10px 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: var(--grey);
+    display: block;
+}
+
+.fa-at {
+    color: white;
+    font-size: 32px;
+    top: 8px;
+    position: relative;
+}
+
+.profile-links {
+    display: table;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.profile-links img,
+.profile-links i {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.profile-links a:hover {
+    text-decoration: none;
+}
+
+#signup-wrapper,
+#account-wrapper {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+#signup-email-label,
+#signup-password-label,
+#signup-confirm-password-label,
+#signup-picture-label,
+#signup-name-label,
+#signup-bio-label,
+#signup-location-label,
+#signup-experience-label,
+#signup-tech-label,
+#signup-other-label,
+#signup-links-label,
+#account-email-label,
+#account-password-label {
+    color: var(--magenta);
+    font-size: 20px;
+    margin-left: 10px;
+    margin-bottom: -10px;
     font-weight: 700;
     letter-spacing: 1px;
 }
 
+#signup-email-input,
+#signup-password-input,
+#signup-confirm-password-input,
+#signup-name-input,
+#signup-location-input,
+#signup-experience-input,
+#signup-tech-input,
+#signup-other-input,
+#signup-linkedin-input,
+#signup-github-input,
+#signup-instagram-input,
+#signup-twitter-input,
+#signup-contact-email-input,
+#signup-website-input,
+#account-email-input,
+#account-password-input {
+    border-radius: 20px;
+    padding: 10px 20px 10px 20px;
+    color: var(--grey);
+    letter-spacing: 1px;
+    box-shadow: none !important;
+    width: 400px;
+    height: 38px;
+    margin-bottom: 10px;
+}
+
+#signup-bio-input {
+    border-radius: 20px;
+    padding: 10px 20px 10px 20px;
+    color: var(--grey);
+    letter-spacing: 1px;
+    box-shadow: none !important;
+    width: 400px;
+    height: 100px;
+}
+
+input[type="file"] {
+    text-transform: lowercase;
+    border: none;
+    background-color: var(--grey);
+}
+
+input[type="file"]:hover,
+input[type="file"]:active {
+    border: none;
+    background-color: var(--grey);
+    outline-color: none !important;
+}
+
 footer {
     cursor: default;
-    position: absolute !important;
+    position: relative !important;
     text-align: center;
     color: var(--magenta);
     left: 50%;
     transform: translate(-50%,0);
     bottom: 0;
+    margin-top: 20px;
+}
+
+@media screen and (max-width:1300px) {
+    .profile-card {
+        margin: 5px !important;
+    }
 }
 
 .signup-form label { 
@@ -396,6 +617,29 @@ footer {
     #home-title {
         font-size: 18px !important;
     }
+
+    #sidebar-wrapper { 
+        width: 100% !important;
+        height: 100% !important;
+        position: relative;
+    }
+
+    #sidebar {
+        margin-top: 0 !important;
+        padding: 10px;
+    }
+
+    #sidebar-search-btn {
+        position: relative !important;
+        right: 0 !important;
+        top: 0 !important;
+        margin-left: 250px;
+        margin-top: -39px;
+    }
+
+    main {
+        margin-left: 0 !important;
+    }
 }
 
 @media screen and (max-width:480px) {
@@ -418,7 +662,10 @@ footer {
         font-size: 80%;
     }
 
-    #login-button {
+    #login-button,
+    #signup-next-button,
+    #signup-finish-button,
+    #account-save-button {
         width: 80% !important;
     }
 }
@@ -431,6 +678,57 @@ footer {
     #home-subtitle {
         text-align: left !important;;
     }
+
+    .profile-links img,
+    .profile-links i {
+        margin-left: 16px;
+        margin-right: 16px;
+        width: 30px;
+        height: 30px;
+        font-size: 30px;
+    }
+
+    h5 {
+        font-size: 12px !important;
+    }
+
+    .profile-card {
+        width: 95%;
+    }
+
+    #signup-email-input,
+    #signup-password-input,
+    #signup-confirm-password-input,
+    #signup-name-input,
+    #signup-bio-input,
+    #signup-location-input,
+    #signup-experience-input,
+    #signup-tech-input,
+    #signup-other-input,
+    #signup-linkedin-input,
+    #signup-github-input,
+    #signup-instagram-input,
+    #signup-twitter-input,
+    #signup-contact-email-input,
+    #signup-website-input,
+    #account-email-input,
+    #account-password-input {
+        width: 280px !important;
+    }
+
+    #signup-step-2 {
+        margin: auto !important;
+    }
+}
+
+@media screen and (max-width:330px) {
+    #sidebar-search-input {
+        width: 240px !important;
+    }
+
+    #sidebar-search-btn {
+        margin-left: 190px;
+    }
 }
 
 @media screen and (max-width:260px) {
@@ -438,4 +736,18 @@ footer {
         padding-right: 10px !important;
         padding-left: 8px !important;
     }
+
+    .profile-card {
+        width: 100% !important;
+    }
+}
+
+@keyframes dropfadedown {
+    from {top:-20px; opacity: 0;}
+    to {top:0px; opacity: 1}
+}
+
+@-webkit-keyframes dropfadedown {
+    from {top:-20px; opacity: 0;}
+    to {top:0px; opacity: 1;}
 }

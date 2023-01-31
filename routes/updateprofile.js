@@ -3,6 +3,8 @@ const updateProfileController = require('../controllers/updateprofile');
 
 const router = Router();
 
-router.get('/updateprofile', updateProfileController.getUpdateProfilePage);
+
+router.get('/', updateProfileController.getUpdateProfilePage);
+
 
 module.exports = router;
