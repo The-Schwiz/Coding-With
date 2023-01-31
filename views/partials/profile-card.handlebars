@@ -1,6 +1,7 @@
+<!-- PROFILE CARD -->
 <div class="profile-card">
     <h3 class="profile-name">{{profile.name}}</h3>
-    {{#if profile.picture is null}}
+    {{#if profile.picture}}
         <a href="/profile/{{profile.id}}">
             <img class="profile-image" src="./images/default.jpg" alt="profile image">
         </a>

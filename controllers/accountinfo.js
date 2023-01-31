@@ -1,6 +1,6 @@
-const accountInfoController = (req, res) => {
-    return res.render('accountInfo');
+const getAccountInfoPage = (req, res) => {
+    return res.render('accountinfo');
 };
 
 
-module.exports = accountInfoController;
+module.exports = { getAccountInfoPage };

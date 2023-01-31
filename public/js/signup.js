@@ -103,6 +103,7 @@ async function completeSignup(){
         },
         method: 'POST',
         body: JSON.stringify({
+            picture: picture,
             name: name,
             bio: bio,
             location: userLocation,

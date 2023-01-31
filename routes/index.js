@@ -3,6 +3,8 @@ const apiRouter = require('./api');
 const homeRouter = require('./home');
 const profileRouter = require('./profile');
 const signupRouter = require('./signup');
+const accountInfoRouter = require('./accountinfo');
+const updateProfileRouter = require('./updateprofile');
 
 
 const mainRouter = Router();
