@@ -6,9 +6,10 @@ const seedLinks = require('./links-seeds');
 
 sequelize.sync({ force: false }).then(async () => {
   // await sequelize.query(`source ${path.resolve(__dirname, '../db/schema.sql')}`);
-  await sequelize.query('DELETE FROM links');
-  await sequelize.query('DELETE FROM profile');
-  await sequelize.query('DELETE FROM user');
+  // await sequelize.query('DELETE FROM links');
+  // await sequelize.query('DELETE FROM profile');
+  // await sequelize.query('DELETE FROM user');
+  await sequelize.query('SOURCE ../db/schema.sql');
   await seedUsers();
   await seedProfiles();
   await seedLinks();
