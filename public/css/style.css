@@ -589,6 +589,10 @@ footer {
     }
 }
 
+.signup-form label { 
+    color: var(--magenta);
+}
+
 @media screen and (max-width:900px) {
     .navbar-search-input { 
         width: 90% !important;

@@ -6,6 +6,8 @@ Profile.belongsTo(User, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
+User.hasOne(Profile);
+
 
 User.hasOne(Profile);
 
@@ -14,6 +16,7 @@ Links.belongsTo(Profile, {
   foreignKey: 'profile_id',
   onDelete: 'CASCADE'
 });
+Profile.hasOne(Links);
 
 Profile.hasOne(Links);
 

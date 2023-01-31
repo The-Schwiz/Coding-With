@@ -14,5 +14,9 @@ mainRouter.use('/profile', profileRouter);
 mainRouter.use('/sign-up', signupRouter);
 // mainRouter.use('/account', accountInfoRouter);
 // mainRouter.use('/update-profile', updateProfileRouter);
+mainRouter.use('/signup', signupRouter);
+
+
+
 
 module.exports = mainRouter;

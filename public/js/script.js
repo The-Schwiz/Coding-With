@@ -20,3 +20,6 @@ window.addEventListener('scroll', () => {
         loadProfiles();
     };
 });
+
+loadProfiles();
+
