@@ -103,14 +103,14 @@ input::-webkit-search-cancel-button {
     padding: 0px !important;
 }
 
-.dropdown-menu {
+#navbar-dropdown-list {
     right: 5px;
     padding: 20px 0 10px 0;
     border-radius: 10px;
     box-shadow: 0 10px 20px 0 var(--shadow);
 }
 
-.dropdown-item {
+.navbar-dropdown-item {
     padding: 10px 35px 10px 35px;
     color: var(--grey);
     text-align: center;
@@ -119,7 +119,7 @@ input::-webkit-search-cancel-button {
     letter-spacing: 1px;
 }
 
-.dropdown-item:active {
+.navbar-dropdown-item:active {
     color: var(--grey) !important;
     background-color: var(--cyan) !important;
     font-weight: 600 !important;
@@ -147,11 +147,11 @@ input::-webkit-search-cancel-button {
     display: block;
 }
 
-.dropdown-item:nth-last-child(-n + 1) {
+.navbar-dropdown-item:nth-last-child(-n + 1) {
     font-weight: 600 !important;
 }
 
-.dropdown-item:nth-last-child(-n + 1):active {
+.navbar-dropdown-item:nth-last-child(-n + 1):active {
     font-weight: 700 !important;
 }
 
@@ -322,6 +322,7 @@ input::-webkit-search-cancel-button {
 }
 
 #sidebar-search-dropdown {
+    text-align: center;
     border-radius: 20px;
     border: none;
     padding: 0 !important;
@@ -331,6 +332,13 @@ input::-webkit-search-cancel-button {
     box-shadow: none !important;
     width: 200px;
     height: 38px;
+}
+
+#sidebar-search-dropdown:active,
+#sidebar-search-dropdown:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
 }
 
 .sidebar-search-item {
