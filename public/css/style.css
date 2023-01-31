@@ -38,7 +38,7 @@ body {
 .navbar-search-input {
     letter-spacing: 1px !important;
     width: 400px !important;
-    border-radius: 20px;
+    border-radius: 20px !important;
 }
 
 input::-ms-clear {
