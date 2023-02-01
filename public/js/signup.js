@@ -1,5 +1,7 @@
 console.log('Signup script');
 
+const baseUrl = location.protocol + '//' + location.host;
+
 
 let picture;
 let email;
@@ -81,7 +83,7 @@ function submitSecondStep(e){
 async function completeSignup(){
     // send a request to the server to create the new user, profile, and links
 
-    let response = await fetch('http://localhost:3001/api/users', {
+    let response = await fetch(`${baseUrl}/api/users`, {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -96,7 +98,7 @@ async function completeSignup(){
     console.log(userData);
 
     // create a profile
-    response = await fetch('http://localhost:3001/api/profiles', {
+    response = await fetch(`${baseUrl}/api/profiles`, {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -113,8 +115,29 @@ async function completeSignup(){
     });
     const profileData = await response.json();
     console.log(profileData);
+
+    // create a profile
+    response = await fetch(`${baseUrl}/api/links`, {
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    body: JSON.stringify({
+       profile_id: profileData.id,
+       linkedin: linkedinLink,
+       github: githubLink,
+       twitter: twitterLink,
+       ig: igLink,
+       website: websiteLink,
+       email: contactEmailLink,
+    })
+    });
+    const linksData = await response.json();
+    console.log(linksData);   
+
     //signupFormStepTwo.display.block = 'none';
-    window.location.replace('http://localhost:3001/')
+    window.location.replace(baseUrl);
 }
 
 
