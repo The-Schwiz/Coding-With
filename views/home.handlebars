@@ -1,0 +1,23 @@
+{{> adv-search}}
+
+<!-- MAIN -->
+<main>
+    <section id="home-header">
+        <header id="home-title">your future code contributers!!</header>
+        <p id="home-subtitle">
+            find partners for your next coding project, ask for help from a pro, 
+            or just connect with other developers to share ideas and resources
+        </p>
+    </section>
+
+    <section id="view-profiles">
+        {{#each profiles as |profile|}}
+            {{> profile-card}}
+        {{/each}}
+    </section>
+</main>
+
+
+{{> footer}}
+
+<script src="./js/home.js"></script>
