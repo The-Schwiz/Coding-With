@@ -10,7 +10,7 @@
    
   ## Desciption
 
-    Coding With is a social platform for connecting people with different levels of coding experience. While collaborating in crucial and professional coding environments, we want to allow users to find fellow coders with similar knowledge and skill sets so they can collaborate on projects, exchange ideas, or even network to find work in the coding sector. We also wanted to provide users with access to fellow users who may have more/less experience with coding so they can learn/mentor with each other. 
+    Coding With is a social platform for connecting people with different levels of coding experience. While collaborating is crucial in professional coding environments, we want to allow users to find fellow coders with similar knowledge and skill sets so they can collaborate on projects, exchange ideas, or even network to find work in the coding sector. We also wanted to provide users with access to fellow users who may have more/less experience with coding so they can learn/mentor with each other. 
 
     Users are able to create a profile that outlines their level of experience and interests in coding. Using the site’s search function, users can search for fellow coders using a text search bar or with a variety of filters such as languages, location, years of experience, and more! Once a user finds someone they want to connect with, they can access that user's social and email contact links to interact. 
 

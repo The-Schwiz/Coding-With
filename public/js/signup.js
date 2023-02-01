@@ -120,5 +120,3 @@ async function completeSignup(){
 
 signupNextButton.addEventListener('click', submitFirstStep);
 signupFinishButton.addEventListener('click', submitSecondStep);
-
-

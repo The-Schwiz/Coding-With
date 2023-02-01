@@ -39,9 +39,6 @@ const getProfilePage = async (req, res) => {
     return res.render('profile', { profile });
 };
 
-const createProfile = async (req, res) => {
-}
-
 const editProfilePage = async (req, res) => {
   const profileId = req.params.id;
   // query the profile from the db
