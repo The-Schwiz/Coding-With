@@ -42,5 +42,4 @@ const getProfilePage = async (req, res) => {
 const createProfile = async (req, res) => {
 }
 
-
 module.exports = { getProfilePage };

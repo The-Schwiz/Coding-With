@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="./images/codingwith-logo.png" type="image/x-icon">
+    {{!-- autocomplete --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.02.min.css">
+
     <title>coding with...</title>
 </head>
 
@@ -35,7 +38,10 @@
     <!-- SEARCH BAR -->
     {{#if logged_in}}
       <form class="navbar-search form-inline navbar-nav ml-auto">
-          <input class="navbar-search-input form-control" type="search" placeholder="search" aria-label="Search" maxlength="38">
+          {{!-- <input class="navbar-search-input form-control" type="search" placeholder="search" aria-label="Search" maxlength="38"> --}}
+          <div class="autoComplete_wrapper"></div>
+        <input id="autoComplete" type="search" dir="ltr" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off">
+        </div>
           <a href="/" id="navbar-search-btn" class="navbar-search-btn navbar-toggler" type="submit" data-toggle="collapse" data-target="#sidebar-wrapper" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Advanced Search">
               <i class="fa-solid fa-magnifying-glass"></i>
           </a>
@@ -114,8 +120,29 @@
   </div>
 
 {{{ body }}}
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
+{{!-- autocomplete --}}
+<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
+    <script>
+        const autoCompleteJS = new autoComplete({
+            placeHolder: "name",
+            data: {
+                src: ["john smith", "carl warren", "sabrina wolf", "tyler cruz", "alex goodman"],
+                cache: true,
+            },
+            resultItem: {
+                highlight: true
+            },
+            events: {
+                input: {
+                    selection: (event) => {
+                        const selection = event.detail.selection.value;
+                        autoCompleteJS.input.value = selection;
+                    }
+                }
+            }
+        });
+    </script>
+    </body>
 </html>

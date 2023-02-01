@@ -8,16 +8,10 @@ Profile.belongsTo(User, {
 });
 User.hasOne(Profile);
 
-
-User.hasOne(Profile);
-
-
 Links.belongsTo(Profile, {
   foreignKey: 'profile_id',
   onDelete: 'CASCADE'
 });
-Profile.hasOne(Links);
-
 Profile.hasOne(Links);
 
 module.exports = { User, Profile, Links };

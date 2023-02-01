@@ -4,5 +4,4 @@ const getSignupPage = (req, res) => {
 
 const createAccount = (req, res) => {}
 
-
 module.exports = { getSignupPage, createAccount };
