@@ -15,14 +15,14 @@ router.get('/', withAuthApi, (req, res) => {
 // POST links route
 router.post('/', withAuthApi, (req, res) => {
   if (req.session) {
-    Link.create({
+    Links.create({
       linkedin: req.body.linkedin,
       github: req.body.github,
       ig: req.body.ig,
       twitter: req.body.twitter,
       email: req.body.email,
       website: req.body.website,
-      user_id: req.session.user_id,
+      profile_id: req.body.profile_id,
     })
       .then(dbLinksData => res.json(dbLinksData))
       .catch(err => {
