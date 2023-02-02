@@ -32,7 +32,7 @@ router.post('/', withAuthApi, (req, res) => {
   }
 });
 
-// DELETE comment route
+// DELETE link route
 router.delete('/:id', withAuthApi, (req, res) => {
   Links.destroy({
     where: {
