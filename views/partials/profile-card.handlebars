@@ -3,9 +3,9 @@
     <h3 class="profile-name">{{name}}</h3>
     <a href="/profiles/{{id}}">
     {{#if picture}}
-        <img class="profile-image" src="./images/default.jpg" alt="profile image">
+        <img class="profile-image" src="/images/avatars/avatar-1.png" alt="profile image">
     {{else}}
-        <img class="profile-image" src="{{picture}}" alt="profile image">
+        <img class="profile-image" src="/images/avatars/avatar-{{imageNumber}}.png" alt="profile image">
     {{/if}}
     </a>
     <div class="profile-tech">{{tech}}</div>

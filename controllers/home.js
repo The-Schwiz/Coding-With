@@ -27,10 +27,10 @@ const getHomePage = async (req, res) => {
         });
 
         const profiles = dbProfiles.map((profile) => profile.get({ plain: true }));
+        const profilesWithImageNumber = profiles.map((profile) => ({...profile, imageNumber: profile.id % 3 + 1 }));
 
         return res.render('home', {
-            profiles,
-            logged_in: req.session?.user_id
+            profiles: profilesWithImageNumber,
         });
     } catch (error) {
         res.send(error.message);

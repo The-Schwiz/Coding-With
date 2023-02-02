@@ -40,6 +40,17 @@ const getProfilePage = async (req, res) => {
 };
 
 const editProfilePage = async (req, res) => {
+  // only logged in user for their profile can edit it
+  const user_id = req.session.user_id;
+
+  const profileFromDb = await Profile.findOne({ where: { user_id: user_id }, attributes: ['id']});
+
+  const profileForLoggedInUser = profileFromDb.get({ plain: true });
+
+  if (profileForLoggedInUser.id != req.params.id) {
+    res.render('not-your-profile');
+  }
+
   const profileId = req.params.id;
   // query the profile from the db
   const dbProfile = await Profile.findOne({
