@@ -8,7 +8,7 @@ const profiledata = [
     location: 'Toronto, Canada',
     experience: '3 years',
     tech: 'HTML, CSS, JavaScript, SQL, Python and other languages',
-    others: 'Gaming, watching movies and snowboarding',
+    other: 'Gaming, watching movies and snowboarding',
     user_id: 1
   },
   {
@@ -18,7 +18,7 @@ const profiledata = [
     location: 'Vancouver, Canada',
     experience: '1 year',
     tech: 'HTML and CSS',
-    others: 'Photography and hiking',
+    other: 'Photography and hiking',
     user_id: 2
   },
   {
@@ -28,7 +28,7 @@ const profiledata = [
     location: 'San Francisco, US',
     experience: '10 years',
     tech: 'HTML, CSS, JavaScript, Ruby, Python and SQL',
-    others: 'Cosplaying and gaming',
+    other: 'Cosplaying and gaming',
     user_id: 3
   },
   {
@@ -38,7 +38,7 @@ const profiledata = [
     location: 'Halifax, Canada',
     experience: '2 years',
     tech: 'JavaScript, HTML, CSS, PHP, and ReactJS',
-    others: 'Basketball, baseball and soccer',
+    other: 'Basketball, baseball and soccer',
     user_id: 4
   },
   {
@@ -48,7 +48,7 @@ const profiledata = [
     location: 'Toronto, Canada',
     experience: '3 years',
     tech: 'HTML, CSS, JavaScript',
-    others: 'Hockey, fishing and skiing',
+    other: 'Hockey, fishing and skiing',
     user_id: 5
   },
 ];

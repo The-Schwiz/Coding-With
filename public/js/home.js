@@ -28,7 +28,7 @@ function oppositeShift() {
 // when clicking off the sidebar, it will close
 // and content will shift
 content.addEventListener('click', () => {
-    if(sidebar != null && sidebar.classList.contains('show')) {
+    if(sidebar.classList.contains('show')) {
         sidebar.classList.remove('show');
         shiftContent();
     } else {

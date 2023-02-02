@@ -8,11 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" href="./images/codingwith-logo.png" type="image/x-icon">
-    {{!-- autocomplete --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.02.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/images/codingwith-logo.png" type="image/x-icon">
 
     <title>coding with...</title>
 </head>
@@ -29,19 +28,17 @@
 
     <!-- LOGO + TITLE -->
     <a class="navbar-brand order-0 h1" href="/">
-        <img src="./images/codingwith-logo.png" width="40" height="40" class="d-inline-block align-top" alt="coding with logo">
+        <img src="/images/codingwith-logo.png" width="40" height="40" class="d-inline-block align-top" alt="coding with logo">
         <div class="title d-inline-block ml-1">
             coding with...
         </div>
     </a>
 
     <!-- SEARCH BAR -->
-    {{#if logged_in}}
+    {{#if session.loggedIn}}
       <form class="navbar-search form-inline navbar-nav ml-auto">
-          {{!-- <input class="navbar-search-input form-control" type="search" placeholder="search" aria-label="Search" maxlength="38"> --}}
           <div class="autoComplete_wrapper"></div>
-        <input id="autoComplete" type="search" dir="ltr" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off">
-        </div>
+          <input id="autoComplete" class="navbar-search-input form-control" type="search" placeholder="search" aria-label="Search" maxlength="38" dir="ltr" spellcheck="false" autocorrect="on" autocomplete="off" autocapitalize="off">
           <a href="/" id="navbar-search-btn" class="navbar-search-btn navbar-toggler" type="submit" data-toggle="collapse" data-target="#sidebar-wrapper" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Advanced Search">
               <i class="fa-solid fa-magnifying-glass"></i>
           </a>
@@ -56,8 +53,8 @@
     {{/if}}
 
     <!-- MY PROFILE -->
-    {{#if logged_in}}
-        <a href=`/profile/{{profile.id}}`>
+    {{#if session.loggedIn}}
+        <a href="/profiles/{{profile.id}}">
         <i class="fa-solid fa-user"></i>
         </a>
     {{else}}
@@ -71,13 +68,14 @@
       <i class="fa-solid fa-bars"></i>
     </a>
     <div id="navbar-dropdown-list" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown-menu">
-        {{#if logged_in}}
-            <a class="navbar-dropdown-item dropdown-item dropdown-loggedin" href="/profile">my profile</a>
-            <a class="navbar-dropdown-item dropdown-item dropdown-loggedin" href="/update-profile">edit profile</a>
+        {{#if session.loggedIn}}
+            <a class="navbar-dropdown-item dropdown-item dropdown-loggedin" href="/profiles/{{this.user.id}}">my profile</a>
+            <a class="navbar-dropdown-item dropdown-item dropdown-loggedin" href="/profiles/{{this.user.id}}/edit">edit profile</a>
             <a class="navbar-dropdown-item dropdown-item dropdown-loggedin" href="/account">account info</a>
-            <a class="navbar-dropdown-item dropdown-item dropdown-loggedin" href="/">
-                <div id="log-out">log out <i class="fa-solid fa-right-from-bracket"></i></div>
-            </a>
+            <form name="logout_form" id="logout_form" method="GET" action="/logout">
+			      <input type="hidden" name="perform_logout" value="1">
+              <input id="log-out" type="submit" value="log out" class="navbar-dropdown-item dropdown-item dropdown-loggedin" href="/">
+            </form>
         {{else}}
             <a class="navbar-dropdown-item dropdown-item dropdown-loggedout" href="/sign-up">create account</a>
             <a class="navbar-dropdown-item dropdown-item dropdown-loggedout" href="#">
@@ -88,7 +86,7 @@
 </nav>
 
   <!-- LOGIN MODAL -->
-  <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="login-modal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body">
@@ -97,14 +95,14 @@
           </div>
           <h1 id="login-title">log in</h1>
           <h2 id="login-subtitle">log in to access all this site's functions</h2>
-          <form class="login-form">
+          <form class="login-form" method="POST" action="/">
             <div class="form-group">
               <label id="login-email-label" for="login-email-input">email</label>
-              <input type="email" class="form-control" id="login-email-input" aria-describedby="emailHelp">
+              <input id="login-email-input" name="email" type="email" class="form-control" aria-describedby="emailHelp">
             </div>
             <div class="form-group">
               <label id="login-password-label" for="login-password-input">password</label>
-              <input type="password" class="form-control" id="login-password-input">
+              <input id="login-password-input" name="password" type="password" class="form-control">
             </div>
             <div class="text-center">
               <button id="login-button" type="submit" class="btn btn-primary">log in</button>
@@ -120,29 +118,13 @@
   </div>
 
 {{{ body }}}
+
+</body>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-{{!-- autocomplete --}}
 <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
-    <script>
-        const autoCompleteJS = new autoComplete({
-            placeHolder: "name",
-            data: {
-                src: ["john smith", "carl warren", "sabrina wolf", "tyler cruz", "alex goodman"],
-                cache: true,
-            },
-            resultItem: {
-                highlight: true
-            },
-            events: {
-                input: {
-                    selection: (event) => {
-                        const selection = event.detail.selection.value;
-                        autoCompleteJS.input.value = selection;
-                    }
-                }
-            }
-        });
-    </script>
-    </body>
-</html>
+<script src="/js/script.js"></script>
+<script src="/js/autocomplete.js"></script>
+
+</head>

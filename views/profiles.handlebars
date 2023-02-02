@@ -1,4 +1,75 @@
-<section>
-    <h1>Profile Page</h1>
-    <div id="profiles"></div>
-</section>
+<!-- MAIN -->
+<main>
+    <div id="profile-page-wrapper" class="container-fluid align-middle mx-auto">
+        {{#if profile.picture}}
+            <img id="profile-page-picture" src="{{profile.picture}}" alt="profile image">
+        {{else}}
+            <img id="profile-page-picture" src="/images/default.jpg" alt="profile image">
+        {{/if}}
+
+        <header id="profile-page-name">{{profile.name}}</header>
+
+        {{#if bio}}
+            <p id="profile-page-bio">{{profile.bio}}</p>
+        {{/if}}
+
+        <div id="profile-page-contents">
+            <div class="profile-page-group">
+                {{#if profile.location}}
+                    <label id="profile-page-location-label" for="profile-page-location">location:</label>
+                {{/if}}
+                <div id="profile-page-location">{{profile.location}}</div>
+            </div>
+            <div class="profile-page-group">
+                {{#if profile.experience}}
+                    <label id="profile-page-experience-label" for="profile-page-experience">experience:</label>
+                {{/if}}
+                <div id="profile-page-experience">{{profile.experience}}</div>
+            </div>
+            <div class="profile-page-group">
+                <label id="profile-page-tech-label" for="profile-page-tech">tech:</label>
+                <div id="profile-page-tech">{{profile.tech}}</div>
+            </div>
+            <div class="profile-page-group">
+                {{#if profile.other}}
+                    <label id="profile-page-other-label" for="profile-page-other">other:</label>
+                {{/if}}
+                    <div id="profile-page-other">{{profile.other}}</div>
+                </div>
+        </div>
+        <container id="profile-page-links-box">
+            {{#if profile.link.linkedin}}
+                <a id="profile-page-linkedin" href="{{profile.link.linkedin}}">
+                    <img height="20" width="20" src="https://cdn.simpleicons.org/linkedin/white" />
+                </a>
+            {{/if}}
+            {{#if profile.link.github}}
+                <a id="profile-page-github" href="{{profile.link.github}}">
+                    <img height="20" width="20" src="https://cdn.simpleicons.org/github/white" />
+                </a>
+            {{/if}}
+            {{#if profile.link.ig}}
+                <a id="profile-page-ig" href="{{profile.link.ig}}">
+                    <img height="20" width="20" src="https://cdn.simpleicons.org/instagram/white" />
+                </a>
+            {{/if}}
+            {{#if profile.link.twitter}}
+                <a id="profile-page-twitter" href="{{profile.link.twitter}}">
+                    <img height="20" width="20" src="https://cdn.simpleicons.org/twitter/white" />
+                </a>
+            {{/if}}
+            {{#if profile.link.email}}
+                <a id="profile-page-email" href="mailto:{{profile.link.email}}">
+                    <i class="fa-solid fa-at"></i>
+                </a>
+            {{/if}}
+            {{#if profile.link.website}}
+                <a id="profile-page-website" href="{{profile.link.website}}">
+                    <i class="fa-solid fa-link"></i>
+                </a>
+            {{/if}}
+        </container>
+    </div>
+</main>
+
+{{> footer}}

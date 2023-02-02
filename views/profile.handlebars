@@ -1,40 +1,41 @@
-
 <!-- MAIN -->
 <main>
     <div id="profile-page-wrapper" class="container-fluid align-middle mx-auto">
         {{#if profile.picture}}
             <img id="profile-page-picture" src="{{profile.picture}}" alt="profile image">
         {{else}}
-            <img id="profile-page-picture" src="./images/default.jpg" alt="profile image">
+            <img id="profile-page-picture" src="/images/default.jpg" alt="profile image">
         {{/if}}
 
         <header id="profile-page-name">{{profile.name}}</header>
 
-        {{#if profile.bio}}
+        {{#if bio}}
             <p id="profile-page-bio">{{profile.bio}}</p>
         {{/if}}
 
         <div id="profile-page-contents">
-            {{#if profile.location}}
-                <div class="profile-page-group">
-                    <label id="profile-page-location-label" for="profile-page-location">location:</label>
-                    <div id="profile-page-location">{{profile.location}}</div>
-                </div>
-            {{/if}}
             <div class="profile-page-group">
-                <label id="profile-page-experience-label" for="profile-page-experience">experience:</label>
+                {{#if profile.location}}
+                    <label id="profile-page-location-label" for="profile-page-location">location:</label>
+                {{/if}}
+                <div id="profile-page-location">{{profile.location}}</div>
+            </div>
+            <div class="profile-page-group">
+                {{#if profile.experience}}
+                    <label id="profile-page-experience-label" for="profile-page-experience">experience:</label>
+                {{/if}}
                 <div id="profile-page-experience">{{profile.experience}}</div>
             </div>
             <div class="profile-page-group">
                 <label id="profile-page-tech-label" for="profile-page-tech">tech:</label>
                 <div id="profile-page-tech">{{profile.tech}}</div>
             </div>
-            {{#if profile.other}}
-                <div class="profile-page-group">
+            <div class="profile-page-group">
+                {{#if profile.other}}
                     <label id="profile-page-other-label" for="profile-page-other">other:</label>
+                {{/if}}
                     <div id="profile-page-other">{{profile.other}}</div>
                 </div>
-            {{/if}}
         </div>
         <container id="profile-page-links-box">
             {{#if profile.link.linkedin}}

@@ -1,0 +1,27 @@
+<!-- MAIN -->
+<main>
+    <section id="white-page-wrapper">
+        <div id="login-icon">
+            <i class="fa-solid fa-circle-exclamation"></i>
+        </div>
+        <h1 id="login-title">log in</h1>
+            <h2 id="login-subtitle">log in to access all this site's functions</h2>
+            <form class="login-form" method="post" action="/login">
+            <div class="form-group">
+                <label id="login-email-label" for="login-email-input">email</label>
+                <input name="email" type="email" class="form-control" id="login-email-input" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label id="login-password-label" for="login-password-input">password</label>
+                <input name="password" type="password" class="form-control" id="login-password-input">
+            </div>
+            <div class="text-center">
+                <button id="login-button" type="submit" class="btn btn-primary">log in</button>
+            </div>
+            <div id="login-divider"></div>
+            <div id="login-modal-footer" class="text-center">
+                new user? <a id="login-signup" href="/sign-up">create a new account</a>!
+            </div>
+        </form>
+    </section>
+</main>

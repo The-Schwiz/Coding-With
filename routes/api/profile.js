@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   Profile.findAll({
     attributes: [
       'id',
-      "picture",
+      'picture',
       'name',
       'bio',
       'location',
