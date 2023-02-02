@@ -16,6 +16,8 @@
 
     Deployed Application: https://codingwith.herokuapp.com/
 
+    Presentation: https://docs.google.com/presentation/d/1VwM78OPsA_kgSz3cc2eh8m_F4xuIkZqiTponj8Qt4HQ/edit?usp=sharing
+
   ## Installation
 
     In order to use the application:
