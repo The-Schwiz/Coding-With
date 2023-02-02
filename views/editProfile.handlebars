@@ -3,7 +3,7 @@
     <header id="update-profile-title">update profile</header>
     <section id="update-profile-wrapper">
 
-        <form class="update-profile-form" id="update-profile-step-2" method="post" action="http://localhost:3001/profiles/{{profile.id}}/update">
+        <form class="update-profile-form" id="update-profile-step-2" method="post" action="/profiles/{{profile.id}}/update">
             <div class="form-group">
                 <label id="update-profile-name-label" for="update-profile-picture-input">display picture</label>
                 <input name="picture" type="file" class="form-control" id="update-profile-picture-input" aria-describedby="pictureHelp" accept=".jpg, .gif, .png">
