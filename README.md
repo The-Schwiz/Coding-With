@@ -14,7 +14,7 @@
 
     Users are able to create a profile that outlines their level of experience and interests in coding. Using the site’s search function, users can search for fellow coders using a text search bar or with a variety of filters such as languages, location, years of experience, and more! Once a user finds someone they want to connect with, they can access that user's social and email contact links to interact. 
 
-    Deployed Application: 
+    Deployed Application: https://codingwith.herokuapp.com/
 
   ## Installation
 
