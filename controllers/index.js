@@ -13,5 +13,6 @@ router.use('/updateprofile', updateProfileRoutes);
 router.use('/accountinfo', accountInfoRoutes);
 router.use('/signup', signupRoutes);
 router.use('/api', apiRoutes);
+router.use ('/login', loginRoutes);
 
 module.exports = router;

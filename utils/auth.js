@@ -8,7 +8,7 @@ const withAuthApi = (req, res, next) => {
 
 const withAuthHtml = (req, res, next) => {
     if (!req.session.user_id) {
-        res.redirect('/');
+        res.render('login');
     } else {
         next();
     }

@@ -36,7 +36,7 @@
     </a>
 
     <!-- SEARCH BAR -->
-    {{#if logged_in}}
+    {{#if session.loggedIn}}
       <form class="navbar-search form-inline navbar-nav ml-auto">
           {{!-- <input class="navbar-search-input form-control" type="search" placeholder="search" aria-label="Search" maxlength="38"> --}}
           <div class="autoComplete_wrapper"></div>
@@ -56,12 +56,8 @@
     {{/if}}
 
     <!-- MY PROFILE -->
-    {{#if logged_in}}
-        <a href=`/profile/{{profile.id}}`>
-        <i class="fa-solid fa-user"></i>
-        </a>
-    {{else}}
-        <a href="#" data-toggle="modal" data-target="#login-modal">
+    {{#if session.loggedIn}}
+        <a href="/profiles/{{session.user_id}}">
         <i class="fa-solid fa-user"></i>
         </a>
     {{/if}}
@@ -71,11 +67,11 @@
       <i class="fa-solid fa-bars"></i>
     </a>
     <div id="navbar-dropdown-list" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown-menu">
-        {{#if logged_in}}
-            <a class="navbar-dropdown-item dropdown-item dropdown-loggedin" href="/profile">my profile</a>
-            <a class="navbar-dropdown-item dropdown-item dropdown-loggedin" href="/update-profile">edit profile</a>
+        {{#if session.loggedIn}}
+            <a class="navbar-dropdown-item dropdown-item dropdown-loggedin" href="/profiles/{{session.user_id}}">my profile</a>
+            <a class="navbar-dropdown-item dropdown-item dropdown-loggedin" href="/profiles/{{session.user_id}}/edit">edit profile</a>
             <a class="navbar-dropdown-item dropdown-item dropdown-loggedin" href="/account">account info</a>
-            <a class="navbar-dropdown-item dropdown-item dropdown-loggedin" href="/">
+            <a class="navbar-dropdown-item dropdown-item dropdown-loggedin" href="/logout">
                 <div id="log-out">log out <i class="fa-solid fa-right-from-bracket"></i></div>
             </a>
         {{else}}
@@ -97,14 +93,14 @@
           </div>
           <h1 id="login-title">log in</h1>
           <h2 id="login-subtitle">log in to access all this site's functions</h2>
-          <form class="login-form">
+          <form class="login-form" method="post" action="/login">
             <div class="form-group">
               <label id="login-email-label" for="login-email-input">email</label>
-              <input type="email" class="form-control" id="login-email-input" aria-describedby="emailHelp">
+              <input name="email" type="email" class="form-control" id="login-email-input" aria-describedby="emailHelp">
             </div>
             <div class="form-group">
               <label id="login-password-label" for="login-password-input">password</label>
-              <input type="password" class="form-control" id="login-password-input">
+              <input name="password" type="password" class="form-control" id="login-password-input">
             </div>
             <div class="text-center">
               <button id="login-button" type="submit" class="btn btn-primary">log in</button>
@@ -118,31 +114,79 @@
       </div>
     </div>
   </div>
-
+{{> adv-search}}
 {{{ body }}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 {{!-- autocomplete --}}
 <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
     <script>
-        const autoCompleteJS = new autoComplete({
-            placeHolder: "name",
-            data: {
-                src: ["john smith", "carl warren", "sabrina wolf", "tyler cruz", "alex goodman"],
-                cache: true,
-            },
-            resultItem: {
-                highlight: true
-            },
-            events: {
-                input: {
-                    selection: (event) => {
-                        const selection = event.detail.selection.value;
-                        autoCompleteJS.input.value = selection;
-                    }
-                }
-            }
-        });
+        // get all profile names from the api
+        const getAllProfileNames = async () => {
+          const response = await fetch('/api/profiles');
+          const data = await response.json();
+          const profileNames = data.map(profile => profile.name);
+            
+          const autoCompleteJS = new autoComplete({
+              placeHolder: "name",
+              data: {
+                  src: profileNames, // ["john smith", "carl warren", "sabrina wolf", "tyler cruz", "alex goodman"],
+                  cache: true,
+              },
+              resultItem: {
+                  highlight: true
+              },
+              events: {
+                  input: {
+                      selection: (event) => {
+                          const selection = event.detail.selection.value;
+                          autoCompleteJS.input.value = selection;
+                      }
+                  }
+              }
+          });
+          const navbar = document.getElementsByClassName('navbar')[0];
+          const navSearchBtn = document.getElementById('navbar-search-btn');
+          const sidebar = document.getElementById('sidebar-wrapper');
+          const content = document.querySelector('main');
+          const footer = document.querySelector('h5');
+
+          // shifts main content of homepage to make room for sidebar
+          function shiftContent() {
+              if(sidebar.classList.contains('show')) {
+                  content.style.marginLeft = '350px';
+                  footer.style.marginLeft = '350px';
+              } else {
+                  content.removeAttribute('style');
+                  footer.removeAttribute('style');
+              }
+          }
+
+          function oppositeShift() {
+              if(sidebar.classList.contains('show')) {
+                  content.removeAttribute('style');
+                  footer.removeAttribute('style');
+              } else {
+                  content.style.marginLeft = '350px';
+                  footer.style.marginLeft = '350px';
+              }
+          }
+
+          // when clicking off the sidebar, it will close
+          // and content will shift
+          content.addEventListener('click', () => {
+              if(sidebar != null && sidebar.classList.contains('show')) {
+                  sidebar.classList.remove('show');
+                  shiftContent();
+              } else {
+                  oppositeShift();
+              }
+          }, {once: true});
+
+          // when clicking on the search button, sidebar will open
+          navSearchBtn.addEventListener('click', oppositeShift);
+        }
+        getAllProfileNames();
     </script>
     </body>
 </html>
