@@ -1,19 +1,21 @@
-<h1 id="login-title">log in</h1>
-    <h2 id="login-subtitle">log in to access all this site's functions</h2>
-    <form class="login-form" method="post" action="/login">
+<br>
+<h1 id="login-title" style="color:white">log in</h1>
+    <h2 id="login-subtitle" style="color:white">log in to access all this site's functions</h2>
+    <form class="login-form" method="post" action="/login" style="margin-left: 40%; margin-right:40%; width: 20%;">
     <div class="form-group">
-        <label id="login-email-label" for="login-email-input">email</label>
-        <input name="email" type="email" class="form-control" id="login-email-input" aria-describedby="emailHelp">
+        <label id="login-email-label" for="login-email-input" style="color:white">email</label>
+        <input name="email" type="email" class="form-control" id="login-email-input" aria-describedby="emailHelp" >
     </div>
     <div class="form-group">
-        <label id="login-password-label" for="login-password-input">password</label>
+        <label id="login-password-label" for="login-password-input" style="color:white">password</label>
         <input name="password" type="password" class="form-control" id="login-password-input">
     </div>
     <div class="text-center">
         <button id="login-button" type="submit" class="btn btn-primary">log in</button>
     </div>
     <div id="login-divider"></div>
-    <div id="login-modal-footer" class="text-center">
+    <div id="login-modal-footer" class="text-center" style="color:white;">
         new user? <a id="login-signup" href="/sign-up">create a new account</a>!
     </div>
 </form>
+{{> footer}}
